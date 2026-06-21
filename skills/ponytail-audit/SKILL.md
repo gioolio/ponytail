@@ -20,7 +20,9 @@ Same as ponytail-review:
 - `stdlib:` hand-rolled thing the standard library ships. Name the function.
 - `native:` dependency or code doing what the platform already does. Name the feature.
 - `yagni:` abstraction with one implementation, config nobody sets, layer with one caller.
-- `shrink:` same logic, fewer lines. Show the shorter form.
+- `shrink:` same logic, fewer lines, without turning it cryptic. Show the shorter form.
+  If the shorter form needs a comment to be understood, it's not a finding —
+  it's a regression in different clothes.
 
 ## Hunt
 
@@ -31,7 +33,9 @@ thing, dead flags and config, hand-rolled stdlib.
 ## Output
 
 One line per finding, ranked: `<tag> <what to cut>. <replacement>. [path]`.
-End with `net: -<N> lines, -<M> deps possible.` Nothing to cut: `Lean already. Ship.`
+End with `net: -<N> lines, -<M> deps possible.` Lines and deps are the tally,
+not the goal — every finding above it must already read as clear, not just
+shorter. Nothing to cut: `Lean already. Ship.`
 
 ## Boundaries
 
@@ -39,3 +43,4 @@ Scope: over-engineering and complexity only. Correctness bugs, security holes,
 and performance are explicitly out of scope. Route them to a normal review
 pass. Lists findings, applies nothing. One-shot.
 "stop ponytail-audit" or "normal mode" to revert.
+```
