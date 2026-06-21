@@ -11,7 +11,8 @@ description: >
 ---
 
 Review diffs for unnecessary complexity. One line per finding: location, what
-to cut, what replaces it. The diff's best outcome is getting shorter.
+to cut, what replaces it. The diff's best outcome is getting shorter without
+getting harder to read.
 
 ## Format
 
@@ -24,7 +25,9 @@ Tags:
 - `stdlib:` hand-rolled thing the standard library ships. Name the function.
 - `native:` dependency or code doing what the platform already does. Name the feature.
 - `yagni:` abstraction with one implementation, config nobody sets, layer with one caller.
-- `shrink:` same logic, fewer lines. Show the shorter form.
+- `shrink:` same logic, fewer lines, without turning it cryptic. Show the shorter form.
+  If the shorter form needs a comment to be understood, it's not a finding —
+  it's a regression in different clothes.
 
 ## Examples
 
@@ -43,7 +46,10 @@ considered whether all these validation rules are needed at this stage?"
 
 ## Scoring
 
-End with the only metric that matters: `net: -<N> lines possible.`
+End with a one-line tally: `net: -<N> lines possible.` That tally is a proxy,
+not the goal: every finding above it must already clear the readability bar.
+A denser line that trades clarity for character count isn't a finding — don't
+report it as one.
 
 If there is nothing to cut, say `Lean already. Ship.` and stop.
 
