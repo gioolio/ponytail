@@ -13,11 +13,11 @@ write flag files, or persist anything.
 
 ## Levels
 
-| Level | Trigger | What change |
+| Level | Trigger | What changes |
 |-------|---------|-------------|
 | **Lite** | `/ponytail lite` | Build what's asked, name the lazier alternative in one line. |
-| **Full** | `/ponytail` | The ladder enforced: YAGNI → stdlib → native → one line → minimum. Default. |
-| **Ultra** | `/ponytail ultra` | YAGNI extremist. Deletion before addition. Challenges requirements before building. |
+| **Full** | `/ponytail` | The ladder enforced: understand the problem → YAGNI → stdlib → native → one clear line → minimum that handles the real cases. Default. |
+| **Ultra** | `/ponytail ultra` | YAGNI extremist, never at the cost of correctness. Challenges requirements before building; still flags any case knowingly skipped. |
 
 Level sticks until changed or session end.
 
@@ -25,8 +25,10 @@ Level sticks until changed or session end.
 
 | Skill | Trigger | What it does |
 |-------|---------|--------------|
-| **ponytail** | `/ponytail` | Lazy mode itself. Simplest solution that works. |
-| **ponytail-review** | `/ponytail-review` | Over-engineering review: `L42: yagni: factory, one product. Inline.` |
+| **ponytail** | `/ponytail` | Lazy mode itself. Simple solution that works — not sloppy, not baroque. |
+| **ponytail-review** | `/ponytail-review` | Over-engineering review on a diff: `L42: yagni: factory, one product. Inline.` |
+| **ponytail-audit** | `/ponytail-audit` | Same hunt, whole repo instead of a diff. Ranked, one-shot report. |
+| **ponytail-debt** | `/ponytail-debt` | Collects every `ponytail:` comment into a ledger so deferred shortcuts don't rot. |
 | **ponytail-gain** | `/ponytail-gain` | Measured-impact scoreboard: less code, less cost, more speed. |
 | **ponytail-help** | `/ponytail-help` | This card. |
 
